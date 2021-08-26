@@ -1,0 +1,15 @@
+// BASE
+
+@mixin media-query($size) {
+   @media screen and (min-width: $size) {
+      @content;
+   }
+}
+
+// TYPOGRAPHY STYLING
+
+@mixin typography($size, $weight, $line-height) {
+   font-size: $size;
+   font-weight: $weight;
+   line-height: calc(#{$size} * #{$line-height});
+}
