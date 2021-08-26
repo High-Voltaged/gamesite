@@ -54,14 +54,14 @@
 
       &-title {
          @include typography($text-lg, 500, 1.5);
-         color: $color-4;
+         color: $color-text;
          font-family: $font-medieval;
       }
       
       &-list {
          &--item {
             @include typography($text-md, 400, 1.5);
-            color: $color-4;
+            color: $color-text;
          }
       }
    }

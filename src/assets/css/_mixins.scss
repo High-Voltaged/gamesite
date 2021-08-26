@@ -13,3 +13,13 @@
    font-weight: $weight;
    line-height: calc(#{$size} * #{$line-height});
 }
+
+// TRANSITIONING
+
+@mixin verticalTranslation($y-offset: 5px) {
+   @extend %base_transition;
+   &:hover {
+      box-shadow: $shadow-xs;
+      transform: translateY($y-offset);
+   }
+}

@@ -1,6 +1,6 @@
 <template>
    
-   <div class="news__container-card w-full h-auto flex flex-col space-y-4 overflow-hidden">
+   <div class="news__container-card w-full h-auto flex flex-col space-y-4 overflow-hidden cursor-pointer">
       
       <div class="news__container-card--header flex flex-col space-y-2">
 
@@ -70,19 +70,20 @@
       background: $color-primary;
       border-radius: $border-radius-sm;
       box-shadow: $shadow-sm;
+      @include verticalTranslation();
 
       &--header .title {
          font-family: $font-medieval;
          @include typography($text-lg, 400, 1.5);
-         color: $color-4;
+         color: $color-text;
       }
       &--header .date {
          @include typography($text-sm, 500, 1.5);
-         color: $color-4;
+         color: $color-text;
       }
       &--text span {
          @include typography($text-md, 400, 1.5);
-         color: $color-4;
+         color: $color-text;
       }
    }
 

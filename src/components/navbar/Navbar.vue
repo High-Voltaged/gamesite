@@ -52,7 +52,7 @@
 
       &-link, &-link--btn {
          @include typography($text-md, 500, 1.5);
-         color: $color-4;
+         color: $color-text;
          letter-spacing: 0.1em;
       }
 

@@ -32,7 +32,7 @@
    .main__container-title {
       @include typography($text-xl, 600, 1.6);
       letter-spacing: 0.09em;
-      color: $color-4;
+      color: $color-text;
    }
 
 </style>

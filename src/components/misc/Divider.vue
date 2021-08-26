@@ -3,7 +3,7 @@
     <div class="main__divider flex items-center justify-center w-full relative">
       <div class="main__divider--line w-full"></div>
 
-      <img :src="require(`~/assets/images/square-dot.svg`)" class="main__divider--img absolute" />
+      <img :src="require(`~/assets/images/square-dot.svg`)" class="main__divider--img absolute select-none" />
    </div>
 
 </template>

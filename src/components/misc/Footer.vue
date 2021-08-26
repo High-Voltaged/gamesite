@@ -53,10 +53,12 @@
 
 <style lang="scss">
 
+   $padding: 24px 36px;
+
    .main__footer {
       width: 100%;
       margin-top: $margin-y;
-      padding: 24px 36px;
+      padding: $padding;
 
       border-radius: $border-radius-sm $border-radius-sm 0 0;
       background: $color-secondary;
@@ -68,7 +70,7 @@
 
       &-link {
          @include typography($text-sm, 400, 1.5);
-         color: $color-4;
+         color: $color-text;
          letter-spacing: 0.1em;
          @extend %base_transition;
          &:hover {
@@ -77,7 +79,7 @@
       }
 
       &-icon {
-         color: $color-4;
+         color: $color-text;
          @extend %base_transition;
          &:hover {
             color: $color-tertiary;

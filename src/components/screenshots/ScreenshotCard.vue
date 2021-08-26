@@ -61,7 +61,7 @@
 
       .card-content {
          @include typography($text-lg, 400, 1.5);
-         color: $color-4;
+         color: $color-text;
       }
    }
 

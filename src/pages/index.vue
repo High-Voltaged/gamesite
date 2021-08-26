@@ -111,7 +111,7 @@
 
          &-content {
             padding: $overlay-padding;
-            box-shadow: inset 0 0 0 $border-size $color-4;
+            box-shadow: inset 0 0 0 $border-size $color-text;
          }
 
          &-overlay-y, &-overlay-x {
@@ -125,8 +125,8 @@
          &-overlay-x {
             left: $title-overlay-offset;
             right: $title-overlay-offset;
-            border-top: $border-size solid $color-4;
-            border-bottom: $border-size solid $color-4;
+            border-top: $border-size solid $color-text;
+            border-bottom: $border-size solid $color-text;
 
             &::before {
                right: -1 * $title-overlay-offset;
@@ -139,8 +139,8 @@
          &-overlay-y {
             top: $title-overlay-offset;
             bottom: $title-overlay-offset;
-            border-left: $border-size solid $color-4;
-            border-right: $border-size solid $color-4;
+            border-left: $border-size solid $color-text;
+            border-right: $border-size solid $color-text;
 
             &::before {
                top: -1 * $title-overlay-offset;
@@ -153,7 +153,7 @@
          span {
             @include typography(36px, 500, 1.5);
             font-family: $font-medieval;
-            color: $color-4;
+            color: $color-text;
             letter-spacing: 0.07em;
          }
       }
