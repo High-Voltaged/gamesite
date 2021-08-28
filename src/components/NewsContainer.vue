@@ -11,9 +11,7 @@
             :key="card.id"
             class="news__container-news--wrapper w-full flex flex-col space-y-6">
 
-            <NewsCard
-               :card="card">
-            </NewsCard>
+            <NewsCard :card="card" />
 
             <Divider v-if="card.id < (cards.length - 1)" />
 

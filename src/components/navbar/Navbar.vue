@@ -82,7 +82,7 @@
 
    }
 
-   @media screen and (min-width: $screen-xs) and (max-width: $screen-lg + 1) {
+   @include media-query($screen-xs, $screen-lg) {
 
       .main__navbar {
          margin-right: -1 * $main-padding-x;

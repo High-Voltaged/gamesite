@@ -17,6 +17,7 @@ export function createRouter() {
       routes: [
          {
             path: '/',
+            redirect: '/home',
             component: index,
             name: 'index',
             children: [

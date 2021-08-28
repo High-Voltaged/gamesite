@@ -1,8 +1,15 @@
 // BASE
 
-@mixin media-query($size) {
-   @media screen and (min-width: $size) {
-      @content;
+@mixin media-query($minSize, $maxSize: 0) {
+   @if $maxSize != 0 {
+      @media screen and (min-width: $minSize) and (max-width: $maxSize + 1) {
+         @content;
+      }
+   }
+   @else {
+      @media screen and (min-width: $minSize) {
+         @content;
+      }
    }
 }
 
