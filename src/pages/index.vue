@@ -64,9 +64,9 @@
 
             this.currentTab.id = index;
             this.currentTab.name = this.navLinks[index].toLowerCase();
+            this.$router.push(`/${this.currentTab.name}`);
 
          }
-         this.$router.push(`/${this.currentTab.name}`);
 
       }
 

@@ -2,7 +2,7 @@
    
    <div class="screenshots__cards-card flex items-center w-full space-x-10">
       
-      <div v-if="imgSrc" class="card-img flex-0">
+      <div v-if="imgSrc" class="card-img flex-0 cursor-pointer">
          <img :src="imgSrc" class="w-full h-full object-cover select-none" alt="Game Screenshot"/>
       </div>
    
@@ -42,6 +42,7 @@
       .card-img {
          width: $img-size-sm;
          height: $img-size-sm;
+         @include verticalTranslation();
 
          @include media-query($screen-md) {
             width: $img-size-md;
