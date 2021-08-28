@@ -2,7 +2,7 @@
    
    <div class="home__cards-card flex flex-col w-full space-y-4 cursor-pointer">
             
-      <div v-if="cardLink" class="card-img w-full">
+      <div v-if="cardLink" @click="shown = true" class="card-img w-full">
          <img :src="cardLink" class="w-full h-full object-cover select-none" alt="First image"/>
       </div>
    
@@ -18,6 +18,15 @@
 
       </div>
 
+      <transition name="scale-out">
+
+         <Modal
+            v-if="shown"
+            :imgSrc="cardLink"
+            @close="shown = false"/>
+
+      </transition>
+
    </div>
 
 </template>
@@ -25,10 +34,12 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from "nuxt-property-decorator";
+   import Modal from '~/components/misc/ImgModal.vue';
 
    @Component({
       name: 'HomeImgCard',
       components: {
+         Modal,
       }
    })
    export default class HomeImgCard extends Vue {
@@ -36,6 +47,9 @@
       @Prop({ default: 'Empty Image Title' }) cardTitle: string;
       @Prop({ default: '' }) cardText: string;
       @Prop({ default: '' }) cardLink: string;
+
+      shown = false;
+
 
    } 
 
@@ -52,7 +66,7 @@
       border-radius: $border-radius-sm;
       background: $color-primary;
       box-shadow: $shadow-sm;
-      @include verticalTranslation();
+      // @include verticalTranslation();
 
       .card-img {
          height: $img-size;

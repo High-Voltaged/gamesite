@@ -2,13 +2,22 @@
    
    <div class="screenshots__cards-card flex items-center w-full space-x-10">
       
-      <div v-if="imgSrc" class="card-img flex-0 cursor-pointer">
+      <div v-if="imgSrc" @click="shown = true" class="card-img flex-0 cursor-pointer">
          <img :src="imgSrc" class="w-full h-full object-cover select-none" alt="Game Screenshot"/>
       </div>
    
       <div class="card-content space-y-3">
          {{ description }}
       </div>
+
+      <transition name="scale-out">
+
+         <Modal
+            v-if="shown"
+            :imgSrc="imgSrc"
+            @close="shown = false"/>
+
+      </transition>
 
    </div>
 
@@ -17,16 +26,19 @@
 <script lang="ts">
 
    import { Component, Prop, Vue } from "nuxt-property-decorator";
+   import Modal from '~/components/misc/ImgModal.vue';
 
    @Component({
       name: 'ScreenshotCard',
       components: {
+         Modal,
       }
    })
    export default class ScreenshotCard extends Vue {
 
       @Prop({ default: '' }) imgSrc: string;
       @Prop({ default: 'Empty description' }) description: string;
+      shown = false;
 
    }      
 

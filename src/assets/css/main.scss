@@ -30,3 +30,22 @@ html {
    }
 
 }
+
+.scale-out-enter-active, .scale-out-leave-active,
+.main__modal-wrapper {
+   @extend %base_transition;
+}
+
+.scale-out-enter, .scale-out-leave-to {
+   opacity: 0;
+   .main__modal-wrapper {
+      transform: scale(0.7);
+   }
+}
+
+.scale-out-enter-to, .scale-out-leave {
+   opacity: 1;
+   .main__modal-wrapper {
+      transform: scale(1);
+   }
+}
