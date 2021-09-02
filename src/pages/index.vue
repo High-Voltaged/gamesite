@@ -4,7 +4,7 @@
       
       <Navbar
          :links="navLinks"
-         :currentTabId="currentTab.id"
+         :currentTab="currentTab"
          @route="routeToPage($event)"
       />
  
@@ -51,20 +51,21 @@
    })
    export default class index extends Vue {
 
-      navLinks = ['HOME', 'DOWNLOAD', 'NEWS', 'SCREENSHOTS'];
+      navLinks = [
+         { id: 0, name: 'HOME' },
+         { id: 1, name: 'DOWNLOAD' },
+         { id: 2, name: 'NEWS' },
+         { id: 3, name: 'SCREENSHOTS' },
+      ];
 
-      currentTab = {
-         id: 0,
-         name: 'home',
-      }
+      currentTab = this.navLinks[0];
 
       routeToPage(index: number) {
 
          if (index != this.currentTab.id) {
 
-            this.currentTab.id = index;
-            this.currentTab.name = this.navLinks[index].toLowerCase();
-            this.$router.push(`/${this.currentTab.name}`);
+            this.currentTab = this.navLinks[index];
+            this.$router.push(`/${this.currentTab.name.toLowerCase()}`);
 
          }
 
@@ -82,8 +83,8 @@
          let routeName = this.$route.name;
          if (routeName != this.currentTab.name) {
 
-            this.currentTab.name = routeName;
-            this.currentTab.id = this.navLinks.indexOf(routeName.toUpperCase());
+            let index = this.navLinks.find(link => (link.name.toLowerCase() == routeName)).id;
+            this.currentTab = this.navLinks[index];
 
          }
 
@@ -96,10 +97,11 @@
 <style lang="scss">
 
    $main-padding: 30px 56px;
+   $main-padding-xs: 20px;
    $overlay-inset: 5%;
 
    $title-overlay-offset: -10px;
-   $overlay-padding: 16px 32px;
+   $overlay-padding: 16px;
    $border-size: 2px;
 
    .main {
@@ -110,7 +112,10 @@
          margin-top: $margin-y;
 
          &-content {
-            padding: $overlay-padding;
+            padding: $overlay-padding / 2 $overlay-padding;
+            @include media-query($screen-md) {
+               padding: $overlay-padding $overlay-padding * 2;
+            }
             box-shadow: inset 0 0 0 $border-size $color-text;
          }
 
@@ -151,7 +156,10 @@
          }
 
          span {
-            @include typography(36px, 500, 1.5);
+            @include typography(28px, 500, 1.5);
+            @include media-query($screen-md) {
+               @include typography(36px, 500, 1.5);
+            }
             font-family: $font-medieval;
             color: $color-text;
             letter-spacing: 0.07em;
@@ -161,7 +169,10 @@
       &__container {
          width: 100%;
          margin-top: $margin-y;
-         padding: $main-padding;
+         padding: $main-padding-xs;
+         @include media-query($screen-md) {
+            padding: $main-padding;
+         }
 
          border-radius: $border-radius-lg;
          background: $color-secondary;

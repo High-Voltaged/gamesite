@@ -2,7 +2,7 @@
 
 @mixin media-query($minSize, $maxSize: 0) {
    @if $maxSize != 0 {
-      @media screen and (min-width: $minSize) and (max-width: $maxSize + 1) {
+      @media screen and (min-width: $minSize) and (max-width: $maxSize - 1px) {
          @content;
       }
    }

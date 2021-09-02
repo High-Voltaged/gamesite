@@ -1,14 +1,14 @@
 <template>
    
-   <div class="home__cards-card flex flex-col w-full space-y-4 cursor-pointer">
+   <div class="home__cards-card flex flex-col items-center w-full space-y-4 cursor-pointer">
             
-      <div v-if="cardLink" @click="shown = true" class="card-img w-full">
+      <div v-if="cardLink" @click="shown = true" class="card-img w-full sm:w-4/5 lg:w-full">
          <img :src="cardLink" class="w-full h-full object-cover select-none" alt="First image"/>
       </div>
    
       <div class="card-content w-full space-y-3">
          
-         <div class="card-content__title">
+         <div class="card-content__title text-center lg:text-left">
             {{ cardTitle }}
          </div>
 
@@ -50,7 +50,6 @@
 
       shown = false;
 
-
    } 
 
 </script>
@@ -61,12 +60,10 @@
    $img-size: calc(var(--card-width) - 2 * #{$card-padding});
 
    .home__cards-card {
-      width: var(--card-width);
       padding: $card-padding;
       border-radius: $border-radius-sm;
       background: $color-primary;
       box-shadow: $shadow-sm;
-      // @include verticalTranslation();
 
       .card-img {
          height: $img-size;

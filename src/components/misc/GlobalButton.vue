@@ -1,11 +1,11 @@
 <template>
    
-   <button @click="$emit('click')" class="main__button flex items-center mx-auto space-x-4 select-none">
+   <button @click="$emit('click')" class="main__button flex items-center justify-center mx-auto space-x-4 select-none">
 
       <font-awesome-icon 
          v-if="icon" 
          :icon="['fas', icon]" 
-         class="main__button--icon w-5 h-5 fill-current" />
+         class="main__button--icon flex-0 w-4 h-4 sm:w-5 sm:h-5 fill-current" />
 
       <span class="main__button--content inline-block">
          {{ content }}
@@ -34,8 +34,14 @@
 
 <style lang="scss">
 
+   $padding: 20px 28px;
+   $padding-xs: 14px 20px;
+
    .main__button {
-      padding: 20px 28px;
+      padding: $padding-xs;
+      @include media-query($screen-sm) {
+         padding: $padding;
+      }
       background: rgba($color-tertiary, .75);
       border-radius: $border-radius-lg;
       box-shadow: $shadow-xs;
@@ -48,7 +54,10 @@
       }
 
       &--content {
-         @include typography($text-xl, 500, 1.5);
+         @include typography($text-lg, 500, 1.5);
+         @include media-query($screen-sm) {
+            @include typography($text-xl, 500, 1.5);
+         }
       }
    }
 

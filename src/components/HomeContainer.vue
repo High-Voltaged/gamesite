@@ -1,16 +1,14 @@
 <template>
    
-   <div class="main__container home__container space-y-12 shadow-xl">
+   <div class="main__container home__container flex flex-col items-center space-y-12 shadow-xl">
       
       <PageTitle :title="title" />
 
       <DemoVideo />
 
-      <Advantages 
-         :items="advantages"
-      />
+      <Advantages :items="advantages" />
 
-      <div class="home__cards grid gap-x-4">
+      <div class="home__cards grid lg:gap-x-4 space-y-10 lg:space-y-0">
 
          <ImgCard 
             v-for="(card, i) in cards"
@@ -92,7 +90,20 @@
    }
 
    .home__cards {
-      grid-template-columns: repeat(auto-fill, minmax(auto, var(--card-width)));
+      grid-template-columns: minmax(auto, 100%);
+   }
+
+   @include media-query($screen-sm) {
+      .home__cards {
+         --card-width: 24rem;
+         grid-template-columns: minmax(auto, var(--card-width));
+      }
+   }
+
+   @include media-query($screen-lg) {
+      .home__cards {
+         grid-template-columns: repeat(3, minmax(auto, var(--card-width)));
+      }
    }
 
 </style>

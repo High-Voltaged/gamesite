@@ -1,16 +1,16 @@
 <template>
    
-   <div class="main__footer flex items-center justify-between space-x-4">
+   <div class="main__footer flex flex-col md:flex-row items-center md:justify-between space-y-8 md:space-y-0 md:space-x-4">
 
-      <div class="main__footer-links flex items-center space-x-6">
+      <div class="main__footer-links flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6">
 
          <button 
-            v-for="(link, i) in links"
-            :key="i"
+            v-for="link in links"
+            :key="link.id"
             class="main__footer-link flex items-center select-none"
-            @click="$emit('route', i)">
+            @click="$emit('route', link.id)">
             
-            <span>{{ link }}</span>
+            <span>{{ link.name }}</span>
          </button>
 
       </div>
@@ -43,7 +43,7 @@
    })
    export default class Footer extends Vue {
 
-      @Prop({ default: [] }) links: string[];
+      @Prop({ default: [] }) links: { name: string, id: number }[];
 
       icons = ['discord', 'facebook', 'github'];
 
