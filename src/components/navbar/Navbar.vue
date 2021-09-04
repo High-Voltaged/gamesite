@@ -12,12 +12,16 @@
             <font-awesome-icon :icon="['fas', 'bars']" class="w-5 h-5 fill-current" />
          </button>
 
-         <NavbarLinks 
-            v-if="xsMenuOn" 
-            :currentTabId="currentTab.id" 
-            :links="partialLinks"
-            @route="$emit('route', $event)" 
-            class="absolute flex md:hidden flex-col items-start" />
+         <transition name="slide-down">
+
+            <NavbarLinks 
+               v-if="xsMenuOn" 
+               :currentTabId="currentTab.id" 
+               :links="partialLinks"
+               @route="$emit('route', $event)" 
+               class="absolute flex md:hidden flex-col items-start" />
+
+         </transition>
 
       </div>
       

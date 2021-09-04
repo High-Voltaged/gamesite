@@ -49,6 +49,9 @@
 
    .main__navbar {
       background: $color-tertiary;
+      &__links {
+         @extend %base_transition;
+      }
 
       &-link, &-link--btn {
          @include typography($text-md, 500, 1.5);

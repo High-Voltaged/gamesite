@@ -49,3 +49,8 @@ html {
       transform: scale(1);
    }
 }
+
+.slide-down-enter, .slide-down-leave-to {
+   transform: translateY(10%);
+   opacity: 0;
+}
