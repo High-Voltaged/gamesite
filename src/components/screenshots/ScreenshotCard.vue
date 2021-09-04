@@ -1,12 +1,12 @@
 <template>
    
-   <div class="screenshots__cards-card flex items-center w-full space-x-10">
+   <div class="screenshots__cards-card flex flex-col sm:flex-row items-center w-full space-y-4 sm:space-y-0 sm:space-x-6 md:space-x-10 px-4 sm:px-0 md:px-10">
       
       <div v-if="imgSrc" @click="shown = true" class="card-img flex-0 cursor-pointer">
          <img :src="imgSrc" class="w-full h-full object-cover select-none" alt="Game Screenshot"/>
       </div>
    
-      <div class="card-content space-y-3">
+      <div class="card-content space-y-3 text-justify sm:text-left">
          {{ description }}
       </div>
 
