@@ -41,7 +41,7 @@
    $modal-width-sm: calc(100% - 10rem);
    $modal-width-md: 600px;
    $modal-width-lg: 800px;
-   $modal-width-xl: 50%;
+   $modal-width-xl: 40%;
 
    .main__modal {
       width: 100vw;
