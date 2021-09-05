@@ -2,7 +2,7 @@
    
    <div class="main__modal flex items-center justify-center fixed inset-0">
             
-      <div class="main__modal-wrapper relative h-full">
+      <div class="main__modal-wrapper relative">
 
          <div class="main__modal-img w-full h-full">
             <img :src="imgSrc" class="main__modal-img--image w-full h-full object-cover select-none" />
@@ -38,8 +38,10 @@
 <style lang="scss" scoped>
 
    $modal-width-xs: calc(100% - 3rem);
-   $modal-width-sm: calc(100% - 5rem);
-   $modal-width-lg: 600px;
+   $modal-width-sm: calc(100% - 10rem);
+   $modal-width-md: 600px;
+   $modal-width-lg: 800px;
+   $modal-width-xl: 50%;
 
    .main__modal {
       width: 100vw;
@@ -49,13 +51,25 @@
       z-index: 1000;
       background: rgba(0, 0, 0, .7);
 
+      @include media-query($screen-sm) {
+         padding: 3rem 0;
+      }
+
       &-wrapper {
          width: $modal-width-xs;
+         max-height: 100%;
          @include media-query($screen-sm) {
             width: $modal-width-sm;
          }
          @include media-query($screen-md) {
+            width: $modal-width-md;
+            height: auto;
+         }
+         @include media-query($screen-lg) {
             width: $modal-width-lg;
+         }
+         @include media-query($screen-xl) {
+            width: $modal-width-xl;
          }
       }
 
