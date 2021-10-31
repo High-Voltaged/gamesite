@@ -51,7 +51,8 @@
       formatDate(): string {
 
          let date = this.card.date;
-         let [month, day, year] = [date.toLocaleString('default', { month: 'long' }), date.getDay(), date.getFullYear()];
+         date.setMonth(date.getMonth() - 1)
+         let [month, day, year] = [date.toLocaleString('default', { month: 'long' }), date.getDate(), date.getFullYear()];
          return `${month} ${day.toString()}, ${year}`;
 
       }
