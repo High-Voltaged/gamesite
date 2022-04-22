@@ -1,4 +1,4 @@
-# media_app
+# A site-description for a game
 
 > Nuxt.js TypeScript project
 
